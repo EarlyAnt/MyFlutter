@@ -17,6 +17,7 @@ class _TabsState extends State<Tabs> {
     Chat(),
     PersonalCenter(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
