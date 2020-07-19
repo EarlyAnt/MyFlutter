@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:myflutter/widgets/simple/animation/basic/AnimatedContainer.dart';
 import 'Tabs.dart';
 
+/*----------------  animations  ----------------*/
+// import '../widgets/simple/animation/basic/AnimatedContainer.dart';
 
 /*----------------origin control----------------*/
-import '../widgets/simple/origin/Origin.dart';
 import '../widgets/simple/origin/Button.dart';
 import '../widgets/simple/origin/TextField.dart';
 import '../widgets/simple/origin/CheckBox.dart';
@@ -16,6 +18,7 @@ final routes = {
   '/textField': (context) => TextFieldDemoPage(),
   '/checkBox': (context) => CheckBoxDemo(),
   '/radio': (context) => RadioDemo(),
+  '/animatedContainer': (context) => AnimatedContainerDemo(),
 };
 
 //固定写法

@@ -40,7 +40,19 @@ class _WidgetsState extends State<Widgets> {
           ),
           body: TabBarView(
             children: <Widget>[
-              Container(alignment: Alignment.center, child: Text('Button')),
+              ListView(
+                padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text('Animated Container'),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/animatedContainer');
+                    },
+                  ),
+                ],
+              ),
               Container(alignment: Alignment.center, child: Text('TextField')),
               Container(alignment: Alignment.center, child: Text('ListView')),
               Container(alignment: Alignment.center, child: Text('GridView')),
