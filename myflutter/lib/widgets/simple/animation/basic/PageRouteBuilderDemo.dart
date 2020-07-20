@@ -4,7 +4,9 @@ class PageRouteBuilderDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Page Route Builder'),
+      ),
       body: Center(
         child: RaisedButton(
           child: Text('Go!'),

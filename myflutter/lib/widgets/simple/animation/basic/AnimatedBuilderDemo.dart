@@ -5,8 +5,7 @@ class AnimatedBuilderDemo extends StatefulWidget {
   _AnimatedBuilderDemoState createState() => _AnimatedBuilderDemoState();
 }
 
-class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
-    with SingleTickerProviderStateMixin {
+class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo> with SingleTickerProviderStateMixin {
   static const Color beginColor = Colors.deepPurple;
   static const Color endColor = Colors.deepOrange;
   Duration duration = Duration(milliseconds: 800);
@@ -18,8 +17,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
     super.initState();
 
     controller = AnimationController(vsync: this, duration: duration);
-    animation =
-        ColorTween(begin: beginColor, end: endColor).animate(controller);
+    animation = ColorTween(begin: beginColor, end: endColor).animate(controller);
   }
 
   @override
@@ -31,7 +29,9 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Animated Builder'),
+      ),
       body: Center(
         // AnimatedBuilder handles listening to a given animation and calling the builder
         // whenever the value of the animation change. This can be useful when a Widget

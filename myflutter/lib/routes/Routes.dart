@@ -8,6 +8,7 @@ import '../widgets/simple/animation/basic/AnimationControllerDemo.dart';
 import '../widgets/simple/animation/basic/TweenDemo.dart';
 import '../widgets/simple/animation/basic/AnimatedBuilderDemo.dart';
 import '../widgets/simple/animation/basic/TypewriterTweenDemo.dart';
+import '../widgets/simple/animation/basic/FadeTransitionDemo.dart';
 
 /*----------------origin control----------------*/
 import '../widgets/simple/origin/Button.dart';
@@ -28,6 +29,7 @@ final routes = {
   '/tween': (context) => TweenDemo(),
   '/animatedBuilder': (context) => AnimatedBuilderDemo(),
   '/typewriterTween': (context) => TypewriterTweenDemo(),
+  '/fadeTransition': (context) => FadeTransitionDemo(),
 };
 
 //固定写法

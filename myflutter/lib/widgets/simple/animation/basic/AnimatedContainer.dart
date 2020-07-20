@@ -21,7 +21,9 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
   Widget build(BuildContext context) {
     // print('<><_AnimatedContainerDemoState.build>${DateTime.now()}');
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Animated Container'),
+      ),
       body: Container(
         child: Center(
           child: Column(
@@ -32,9 +34,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                 height: 128,
                 margin: EdgeInsets.all(this._margin),
                 padding: EdgeInsets.all(30.0),
-                decoration: BoxDecoration(
-                    color: this._color,
-                    borderRadius: BorderRadius.circular(this._borderRadius)),
+                decoration: BoxDecoration(color: this._color, borderRadius: BorderRadius.circular(this._borderRadius)),
                 duration: Duration(milliseconds: 200),
                 child: FloatingActionButton(
                   child: Text('Play'),

@@ -5,8 +5,7 @@ class TweenDemo extends StatefulWidget {
   _TweenDemoState createState() => _TweenDemoState();
 }
 
-class _TweenDemoState extends State<TweenDemo>
-    with SingleTickerProviderStateMixin {
+class _TweenDemoState extends State<TweenDemo> with SingleTickerProviderStateMixin {
   static const Duration _duration = Duration(seconds: 1);
   static const double accountBalance = 5000000;
   AnimationController controller;
@@ -33,21 +32,20 @@ class _TweenDemoState extends State<TweenDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Tween'),
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 200),
-              child: Text('\$${animation.value.toStringAsFixed(2)}',
-                  style: TextStyle(fontSize: 24)),
+              child: Text('\$${animation.value.toStringAsFixed(2)}', style: TextStyle(fontSize: 24)),
             ),
             RaisedButton(
               child: Text(
-                controller.status == AnimationStatus.completed
-                    ? 'Buy a Mansion'
-                    : 'Win Lottery',
+                controller.status == AnimationStatus.completed ? 'Buy a Mansion' : 'Win Lottery',
               ),
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {

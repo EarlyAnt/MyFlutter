@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 class AnimationControllerDemo extends StatefulWidget {
   @override
-  _AnimationControllerDemoState createState() =>
-      _AnimationControllerDemoState();
+  _AnimationControllerDemoState createState() => _AnimationControllerDemoState();
 }
 
-class _AnimationControllerDemoState extends State<AnimationControllerDemo>
-    with SingleTickerProviderStateMixin {
+class _AnimationControllerDemoState extends State<AnimationControllerDemo> with SingleTickerProviderStateMixin {
   // Using the SingleTickerProviderStateMixin can ensure that our
   // AnimationController only animates while the Widget is visible on the
   // screen. This is a useful optimization that saves resources when the
@@ -47,7 +45,9 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
     // when building child widgets. You can also check the status to see if the animation
     // has completed.
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Animation Controller'),
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

@@ -39,6 +39,7 @@ class _TypewriterTweenDemoState extends State<TypewriterTweenDemo> with SingleTi
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Typewriter Tween'),
         actions: [
           MaterialButton(
             child: Text(

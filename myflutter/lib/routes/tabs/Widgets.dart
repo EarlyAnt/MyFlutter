@@ -53,7 +53,8 @@ class _WidgetsState extends State<Widgets> {
             this._buildRaiseButton('AnimationController', '/animationController'),
             this._buildRaiseButton('Tween', '/tween'),
             this._buildRaiseButton('AnimatedBuilder', '/animatedBuilder'),
-            this._buildRaiseButton('TypewriterTween', '/typewriterTween')
+            this._buildRaiseButton('TypewriterTween', '/typewriterTween'),
+            this._buildRaiseButton('FadeTransition', '/fadeTransition'),
           ],
         ),
         Container(alignment: Alignment.center, child: Text('TextField')),
