@@ -50,6 +50,7 @@ class _WidgetsState extends State<Widgets> {
           children: <Widget>[
             this._buildRaiseButton('Animated Container', '/animatedContainer'),
             this._buildRaiseButton('PageRouteBuilder', '/pageRouteBuilder'),
+            this._buildRaiseButton('AnimationController', '/animationController')
           ],
         ),
         Container(alignment: Alignment.center, child: Text('TextField')),

@@ -4,6 +4,7 @@ import 'Tabs.dart';
 /*----------------  animations  ----------------*/
 import '../widgets/simple/animation/basic/AnimatedContainer.dart';
 import '../widgets/simple/animation/basic/PageRouteBuilderDemo.dart';
+import '../widgets/simple/animation/basic/AnimationControllerDemo.dart';
 
 /*----------------origin control----------------*/
 import '../widgets/simple/origin/Button.dart';
@@ -20,6 +21,7 @@ final routes = {
   '/radio': (context) => RadioDemo(),
   '/animatedContainer': (context) => AnimatedContainerDemo(),
   '/pageRouteBuilder': (context) => PageRouteBuilderDemo(),
+  '/animationController': (context) => AnimationControllerDemo(),
 };
 
 //固定写法
