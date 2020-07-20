@@ -5,6 +5,7 @@ import 'Tabs.dart';
 import '../widgets/simple/animation/basic/AnimatedContainer.dart';
 import '../widgets/simple/animation/basic/PageRouteBuilderDemo.dart';
 import '../widgets/simple/animation/basic/AnimationControllerDemo.dart';
+import '../widgets/simple/animation/basic/TweenDemo.dart';
 
 /*----------------origin control----------------*/
 import '../widgets/simple/origin/Button.dart';
@@ -22,6 +23,7 @@ final routes = {
   '/animatedContainer': (context) => AnimatedContainerDemo(),
   '/pageRouteBuilder': (context) => PageRouteBuilderDemo(),
   '/animationController': (context) => AnimationControllerDemo(),
+  '/tween': (context) => TweenDemo(),
 };
 
 //固定写法
