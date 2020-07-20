@@ -17,49 +17,58 @@ class _WidgetsState extends State<Widgets> {
             backgroundColor: Colors.blue,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: TabBar(
-                    isScrollable: true, //如果多个按钮的话可以滑动
-                    indicatorColor: Colors.yellow,
-                    labelColor: Colors.yellow,
-                    unselectedLabelColor: Colors.white,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    tabs: <Widget>[
-                      Tab(text: "Button"),
-                      Tab(text: "TextField"),
-                      Tab(text: "ListView"),
-                      Tab(text: "GridView"),
-                      Tab(text: "Animation"),
-                      Tab(text: "Origin"),
-                    ],
-                  ),
-                )
-              ],
+              children: <Widget>[Expanded(child: this._buildTabBar())],
             ),
           ),
-          body: TabBarView(
-            children: <Widget>[
-              ListView(
-                padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
-                children: <Widget>[
-                  RaisedButton(
-                    child: Text('Animated Container'),
-                    color: Colors.blue,
-                    textColor: Colors.white,
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/animatedContainer');
-                    },
-                  ),
-                ],
-              ),
-              Container(alignment: Alignment.center, child: Text('TextField')),
-              Container(alignment: Alignment.center, child: Text('ListView')),
-              Container(alignment: Alignment.center, child: Text('GridView')),
-              Container(alignment: Alignment.center, child: Text('Animation')),
-              Origin(),
-            ],
-          )),
+          body: this._buildTabBarView()),
+    );
+  }
+
+  Widget _buildTabBar() {
+    return TabBar(
+      isScrollable: true, //如果多个按钮的话可以滑动
+      indicatorColor: Colors.yellow,
+      labelColor: Colors.yellow,
+      unselectedLabelColor: Colors.white,
+      indicatorSize: TabBarIndicatorSize.label,
+      tabs: <Widget>[
+        Tab(text: "Button"),
+        Tab(text: "TextField"),
+        Tab(text: "ListView"),
+        Tab(text: "GridView"),
+        Tab(text: "Animation"),
+        Tab(text: "Origin"),
+      ],
+    );
+  }
+
+  Widget _buildTabBarView() {
+    return TabBarView(
+      children: <Widget>[
+        ListView(
+          padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
+          children: <Widget>[
+            this._buildRaiseButton('Animated Container', '/animatedContainer'),
+            this._buildRaiseButton('PageRouteBuilder', '/pageRouteBuilder'),
+          ],
+        ),
+        Container(alignment: Alignment.center, child: Text('TextField')),
+        Container(alignment: Alignment.center, child: Text('ListView')),
+        Container(alignment: Alignment.center, child: Text('GridView')),
+        Container(alignment: Alignment.center, child: Text('Animation')),
+        Origin(),
+      ],
+    );
+  }
+
+  Widget _buildRaiseButton(String buttonText, String routeName) {
+    return RaisedButton(
+      child: Text(buttonText),
+      color: Colors.blue,
+      textColor: Colors.white,
+      onPressed: () {
+        Navigator.pushNamed(context, routeName);
+      },
     );
   }
 }

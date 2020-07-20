@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myflutter/widgets/simple/animation/basic/AnimatedContainer.dart';
 import 'Tabs.dart';
 
 /*----------------  animations  ----------------*/
-// import '../widgets/simple/animation/basic/AnimatedContainer.dart';
+import '../widgets/simple/animation/basic/AnimatedContainer.dart';
+import '../widgets/simple/animation/basic/PageRouteBuilderDemo.dart';
 
 /*----------------origin control----------------*/
 import '../widgets/simple/origin/Button.dart';
@@ -19,6 +19,7 @@ final routes = {
   '/checkBox': (context) => CheckBoxDemo(),
   '/radio': (context) => RadioDemo(),
   '/animatedContainer': (context) => AnimatedContainerDemo(),
+  '/pageRouteBuilder': (context) => PageRouteBuilderDemo(),
 };
 
 //固定写法
