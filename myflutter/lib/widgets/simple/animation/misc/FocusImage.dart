@@ -19,8 +19,8 @@ class Grid extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         itemBuilder: (context, index) {
           return (index >= 20)
-              ? SmallCard('assets/texture/eat_cape_town_sm.jpg')
-              : SmallCard('assets/texture/eat_new_orleans_sm.jpg');
+              ? SmallCard('assets/texture/tea04.jpg')
+              : SmallCard('assets/texture/tea01.jpg');
         },
       ),
     );

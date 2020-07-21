@@ -18,9 +18,9 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
 
   void _resetCards() {
     fileNames = [
-      'assets/texture/eat_cape_town_sm.jpg',
-      'assets/texture/eat_new_orleans_sm.jpg',
-      'assets/texture/eat_sydney_sm.jpg',
+      'assets/texture/tea04.jpg',
+      'assets/texture/tea01.jpg',
+      'assets/texture/tea12.jpg',
     ];
   }
 

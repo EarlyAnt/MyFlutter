@@ -4,9 +4,9 @@ import 'package:flutter/widgets.dart';
 
 class CarouselDemo extends StatelessWidget {
   static const List<String> fileNames = [
-    'assets/texture/eat_cape_town_sm.jpg',
-    'assets/texture/eat_new_orleans_sm.jpg',
-    'assets/texture/eat_sydney_sm.jpg',
+    'assets/texture/tea04.jpg',
+    'assets/texture/tea01.jpg',
+    'assets/texture/tea12.jpg',
   ];
 
   final List<Widget> images = fileNames.map((file) => Image.asset(file, fit: BoxFit.cover)).toList();

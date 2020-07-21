@@ -64,11 +64,11 @@ class _ExpandCardState extends State<ExpandCard> with SingleTickerProviderStateM
                 );
               },
               firstChild: Image.asset(
-                'assets/texture/eat_cape_town_sm.jpg',
+                'assets/texture/tea04.jpg',
                 fit: BoxFit.cover,
               ),
               secondChild: Image.asset(
-                'assets/texture/eat_new_orleans_sm.jpg',
+                'assets/texture/tea01.jpg',
                 fit: BoxFit.cover,
               ),
             ),
