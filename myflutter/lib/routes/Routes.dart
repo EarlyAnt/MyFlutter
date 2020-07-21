@@ -28,6 +28,9 @@ import '../widgets/simple/origin/TextField.dart';
 import '../widgets/simple/origin/CheckBox.dart';
 import '../widgets/simple/origin/Radio.dart';
 
+/*----------------    plugins   ----------------*/
+import '../plugins/camera/CameraDemo.dart';
+
 //配置路由
 final routes = {
   '/': (context) => Tabs(),
@@ -53,6 +56,7 @@ final routes = {
   '/heroAnimation': (context) => HeroAnimationDemo(),
   '/physicsCardDrag': (context) => PhysicsCardDragDemo(),
   '/repeatingAnimation': (context) => RepeatingAnimationDemo(),
+  '/camera': (context) => CameraDemo(),
 };
 
 //固定写法

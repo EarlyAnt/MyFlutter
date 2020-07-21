@@ -80,8 +80,7 @@ class _TabsState extends State<Tabs> {
                   ),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(
-                          "https://www.itying.com/images/flutter/2.png"),
+                      image: NetworkImage("https://www.itying.com/images/flutter/2.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -110,6 +109,11 @@ class _TabsState extends State<Tabs> {
           ListTile(
             leading: CircleAvatar(child: Icon(Icons.settings)),
             title: Text("设置中心"),
+          ),
+          Divider(),
+          ListTile(
+            leading: CircleAvatar(child: Icon(Icons.apps)),
+            title: Text("版本：v20200721_1727"),
           ),
           Divider(),
         ],

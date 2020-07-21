@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Plugins extends StatefulWidget {
   Plugins({Key key}) : super(key: key);
@@ -10,7 +13,7 @@ class _PluginsState extends State<Plugins> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 8,
+      length: 4,
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.blue,
@@ -25,14 +28,10 @@ class _PluginsState extends State<Plugins> {
                     unselectedLabelColor: Colors.white,
                     indicatorSize: TabBarIndicatorSize.label,
                     tabs: <Widget>[
-                      Tab(text: "推荐0"),
-                      Tab(text: "推荐1"),
-                      Tab(text: "推荐2"),
-                      Tab(text: "推荐3"),
-                      Tab(text: "热销4"),
-                      Tab(text: "推荐5"),
-                      Tab(text: "推荐6"),
-                      Tab(text: "推荐7")
+                      Tab(text: "Camera"),
+                      Tab(text: "Dio"),
+                      Tab(text: "Jason"),
+                      Tab(text: "Nosql"),
                     ],
                   ),
                 )
@@ -42,57 +41,55 @@ class _PluginsState extends State<Plugins> {
           body: TabBarView(
             children: <Widget>[
               ListView(
+                padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
                 children: <Widget>[
-                  ListTile(title: Text("第一个tab")),
-                  ListTile(title: Text("第一个tab")),
-                  ListTile(title: Text("第一个tab"))
+                  this._buildRaiseButton('Camera', '/camera'),
+                  this._buildActionButton('Print Path', () => this._printPath()),
                 ],
               ),
-              ListView(
-                children: <Widget>[
-                  ListTile(title: Text("第二个tab")),
-                  ListTile(title: Text("第二个tab")),
-                  ListTile(title: Text("第二个tab"))
-                ],
-              ),
-              ListView(
-                children: <Widget>[
-                  ListTile(title: Text("第三个tab")),
-                  ListTile(title: Text("第三个tab")),
-                ],
-              ),
-              ListView(
-                children: <Widget>[
-                  ListTile(title: Text("第四个tab")),
-                  ListTile(title: Text("第四个tab"))
-                ],
-              ),
-              ListView(
-                children: <Widget>[
-                  ListTile(title: Text("第五个tab")),
-                  ListTile(title: Text("第五个tab")),
-                ],
-              ),
-              ListView(
-                children: <Widget>[
-                  ListTile(title: Text("第六个tab")),
-                  ListTile(title: Text("第六个tab")),
-                ],
-              ),
-              ListView(
-                children: <Widget>[
-                  ListTile(title: Text("第七个tab")),
-                  ListTile(title: Text("第七个tab"))
-                ],
-              ),
-              ListView(
-                children: <Widget>[
-                  ListTile(title: Text("第八个tab")),
-                  ListTile(title: Text("第八个tab"))
-                ],
-              )
+              Container(alignment: Alignment.center, child: Text('Dio')),
+              Container(alignment: Alignment.center, child: Text('Jason')),
+              Container(alignment: Alignment.center, child: Text('Nosql')),
             ],
           )),
     );
+  }
+
+  Widget _buildRaiseButton(String buttonText, String routeName) {
+    return RaisedButton(
+      child: Text(buttonText),
+      color: Colors.blue,
+      textColor: Colors.white,
+      onPressed: () {
+        Navigator.pushNamed(context, routeName);
+      },
+    );
+  }
+
+  Widget _buildActionButton(String buttonText, Function callback) {
+    return RaisedButton(
+      child: Text(buttonText),
+      color: Colors.blue,
+      textColor: Colors.white,
+      onPressed: () {
+        if (callback != null) callback();
+      },
+    );
+  }
+
+  Future<void> _printPath() async {
+    final Directory libraryPath = await getLibraryDirectory();
+    // final Directory downloadPath = await getDownloadsDirectory();
+    // final Directory temporaryPath = await getTemporaryDirectory();
+    // final Directory storagePath = await getExternalStorageDirectory();
+    final Directory supportPath = await getApplicationSupportDirectory();
+    final Directory documentPath = await getApplicationDocumentsDirectory();
+
+    print('1.libraryPath -> ${libraryPath.path}');
+    // print('2.downloadPath -> ${downloadPath.path}');
+    // print('3.temporaryPath -> ${temporaryPath.path}');
+    // print('4.storagePath -> ${storagePath.path}');
+    print('5.supportPath -> ${supportPath.path}');
+    print('6.documentPath -> ${documentPath.path}');
   }
 }
