@@ -45,6 +45,7 @@ class _PluginsState extends State<Plugins> {
                 children: <Widget>[
                   this._buildRaiseButton('Camera', '/camera'),
                   this._buildRaiseButton('Json Convert', '/json'),
+                  this._buildRaiseButton('PlayerPrefs', '/playerPrefs'),
                   this._buildActionButton('Print Path', () => this._printPath()),
                 ],
               ),
