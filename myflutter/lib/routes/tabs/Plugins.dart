@@ -44,6 +44,7 @@ class _PluginsState extends State<Plugins> {
                 padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
                 children: <Widget>[
                   this._buildRaiseButton('Camera', '/camera'),
+                  this._buildRaiseButton('Json Convert', '/json'),
                   this._buildActionButton('Print Path', () => this._printPath()),
                 ],
               ),

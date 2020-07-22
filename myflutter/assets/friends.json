@@ -1,0 +1,30 @@
+[
+    {
+        "child_sn": "OSKGX23Z9RWL",
+        "child_name": "小龙人",
+        "cup_sn": "22190408001909G",
+        "game_level": 4,
+        "game_crown_count": 24,
+        "game_bronze_crown": 7,
+        "game_silver_crown": 8,
+        "game_golden_crown": 9,
+        "area": "",
+        "sort_index": 7007004,
+        "cup_game_name": "GAMEMERCURY",
+        "child_head_index": 1
+    },
+    {
+        "child_name": "萱萱",
+        "cup_sn": "22190408001893G",
+        "game_level": 7,
+        "game_crown_count": 10,
+        "game_bronze_crown": 5,
+        "game_silver_crown": 3,
+        "game_golden_crown": 2,
+        "area": "",
+        "sort_index": 2003005,
+        "cup_game_name": "GAMEMERCURY",
+        "child_head_index": 3,
+        "child_sn": "L7SJO8E2GPXC"
+    }
+]

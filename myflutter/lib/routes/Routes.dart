@@ -30,6 +30,7 @@ import '../widgets/simple/origin/Radio.dart';
 
 /*----------------    plugins   ----------------*/
 import '../plugins/camera/CameraDemo.dart';
+import '../plugins/Json/JsonConvertDemo.dart';
 
 //配置路由
 final routes = {
@@ -57,6 +58,7 @@ final routes = {
   '/physicsCardDrag': (context) => PhysicsCardDragDemo(),
   '/repeatingAnimation': (context) => RepeatingAnimationDemo(),
   '/camera': (context) => CameraDemo(),
+  '/json': (context) => JsonConvertDemo(),
 };
 
 //固定写法
