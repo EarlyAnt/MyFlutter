@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'Tabs.dart';
+
+/*--------------------pages---------------------*/
+import 'Welcome.dart';
+import 'HomePage.dart';
 
 /*-------------------buttons--------------------*/
 import '../widgets/simple/button/CircularProgressDemo.dart';
@@ -39,7 +42,8 @@ import '../plugins/playerPrefs/PlayerPrefsDemo.dart';
 //配置路由
 final routes = {
   /*--------------------pages-------------------*/
-  '/': (context) => Tabs(),
+  '/': (context) => Welcome(),
+  '/home': (context) => HomePage(),
 
   /*-------------------buttons------------------*/
   '/circularProgress': (context) => CircularProgressDemo(),

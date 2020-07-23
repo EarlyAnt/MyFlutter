@@ -3,16 +3,16 @@ import 'tabs/Widgets.dart';
 import 'tabs/Plugins.dart';
 import 'tabs/Setting.dart';
 
-class Tabs extends StatefulWidget {
+class HomePage extends StatefulWidget {
   final index;
-  Tabs({Key key, this.index = 0}) : super(key: key);
+  HomePage({Key key, this.index = 0}) : super(key: key);
 
-  _TabsState createState() => _TabsState(this.index);
+  _HomePageState createState() => _HomePageState(this.index);
 }
 
-class _TabsState extends State<Tabs> {
+class _HomePageState extends State<HomePage> {
   int _currentIndex;
-  _TabsState(index) {
+  _HomePageState(index) {
     this._currentIndex = index;
   }
 
