@@ -29,6 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   shared_preferences: ^0.5.8
+  common_utils:
 
   camera: ^0.5.8+2
   path_provider:

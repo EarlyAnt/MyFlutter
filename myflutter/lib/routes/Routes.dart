@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'Tabs.dart';
 
-/*----------------  animations  ----------------*/
+/*-------------------buttons--------------------*/
+import '../widgets/simple/button/CircularProgressDemo.dart';
+
+/*------------------animations------------------*/
 import '../widgets/simple/animation/basic/AnimatedContainer.dart';
 import '../widgets/simple/animation/basic/PageRouteBuilderDemo.dart';
 import '../widgets/simple/animation/basic/AnimationControllerDemo.dart';
@@ -28,18 +31,20 @@ import '../widgets/simple/origin/TextField.dart';
 import '../widgets/simple/origin/CheckBox.dart';
 import '../widgets/simple/origin/Radio.dart';
 
-/*----------------    plugins   ----------------*/
+/*--------------------plugins-------------------*/
 import '../plugins/camera/CameraDemo.dart';
 import '../plugins/json/JsonConvertDemo.dart';
 import '../plugins/playerPrefs/PlayerPrefsDemo.dart';
 
 //配置路由
 final routes = {
+  /*--------------------pages-------------------*/
   '/': (context) => Tabs(),
-  '/buttonPage': (context) => ButtonDemoPage(),
-  '/textField': (context) => TextFieldDemoPage(),
-  '/checkBox': (context) => CheckBoxDemo(),
-  '/radio': (context) => RadioDemo(),
+
+  /*-------------------buttons------------------*/
+  '/circularProgress': (context) => CircularProgressDemo(),
+
+  /*-----------------animations-----------------*/
   '/animatedContainer': (context) => AnimatedContainerDemo(),
   '/pageRouteBuilder': (context) => PageRouteBuilderDemo(),
   '/animationController': (context) => AnimationControllerDemo(),
@@ -58,9 +63,17 @@ final routes = {
   '/heroAnimation': (context) => HeroAnimationDemo(),
   '/physicsCardDrag': (context) => PhysicsCardDragDemo(),
   '/repeatingAnimation': (context) => RepeatingAnimationDemo(),
+
+  /*-------------------plugins------------------*/
   '/camera': (context) => CameraDemo(),
   '/json': (context) => JsonConvertDemo(),
   '/playerPrefs': (context) => PlayerPrefsDemo(),
+
+  /*-------------------origins------------------*/
+  '/buttonPage': (context) => ButtonDemoPage(),
+  '/textField': (context) => TextFieldDemoPage(),
+  '/checkBox': (context) => CheckBoxDemo(),
+  '/radio': (context) => RadioDemo(),
 };
 
 //固定写法

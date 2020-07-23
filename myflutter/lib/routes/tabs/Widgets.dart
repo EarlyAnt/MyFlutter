@@ -48,6 +48,15 @@ class _WidgetsState extends State<Widgets> {
         ListView(
           padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
           children: <Widget>[
+            this._buildRaiseButton('CircularProgress', '/circularProgress'),
+          ],
+        ),
+        Container(alignment: Alignment.center, child: Text('TextField')),
+        Container(alignment: Alignment.center, child: Text('ListView')),
+        Container(alignment: Alignment.center, child: Text('GridView')),
+        ListView(
+          padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
+          children: <Widget>[
             this._buildRaiseButton('Animated Container', '/animatedContainer'),
             this._buildRaiseButton('PageRouteBuilder', '/pageRouteBuilder'),
             this._buildRaiseButton('AnimationController', '/animationController'),
@@ -66,13 +75,8 @@ class _WidgetsState extends State<Widgets> {
             this._buildRaiseButton('HeroAnimation', '/heroAnimation'),
             this._buildRaiseButton('PhysicsCardDrag', '/physicsCardDrag'),
             this._buildRaiseButton('RepeatingAnimation', '/repeatingAnimation'),
-            
           ],
         ),
-        Container(alignment: Alignment.center, child: Text('TextField')),
-        Container(alignment: Alignment.center, child: Text('ListView')),
-        Container(alignment: Alignment.center, child: Text('GridView')),
-        Container(alignment: Alignment.center, child: Text('Animation')),
         Origin(),
       ],
     );
