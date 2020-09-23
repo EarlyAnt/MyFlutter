@@ -47,7 +47,12 @@ class _PluginsState extends State<Plugins> {
                   this._buildRaiseButton('Camera', '/camera'),
                 ],
               ),
-              Container(alignment: Alignment.center, child: Text('Dio')),
+              ListView(
+                padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
+                children: <Widget>[
+                  this._buildRaiseButton('LoginView', '/loginView'),
+                ],
+              ),
               ListView(
                 padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
                 children: <Widget>[

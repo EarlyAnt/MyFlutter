@@ -36,6 +36,7 @@ import '../widgets/simple/origin/Radio.dart';
 
 /*--------------------plugins-------------------*/
 import '../plugins/camera/CameraDemo.dart';
+import '../plugins/dio/loginView.dart';
 import '../plugins/json/JsonConvertDemo.dart';
 import '../plugins/playerPrefs/PlayerPrefsDemo.dart';
 
@@ -70,6 +71,7 @@ final routes = {
 
   /*-------------------plugins------------------*/
   '/camera': (context) => CameraDemo(),
+  '/loginView': (context) => LoginView(),
   '/json': (context) => JsonConvertDemo(),
   '/playerPrefs': (context) => PlayerPrefsDemo(),
 
