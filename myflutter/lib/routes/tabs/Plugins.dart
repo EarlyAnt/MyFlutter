@@ -13,7 +13,7 @@ class _PluginsState extends State<Plugins> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.blue,
@@ -32,6 +32,7 @@ class _PluginsState extends State<Plugins> {
                       Tab(text: "Dio"),
                       Tab(text: "Jason"),
                       Tab(text: "Nosql"),
+                      Tab(text: "Others"),
                     ],
                   ),
                 )
@@ -44,14 +45,27 @@ class _PluginsState extends State<Plugins> {
                 padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
                 children: <Widget>[
                   this._buildRaiseButton('Camera', '/camera'),
-                  this._buildRaiseButton('Json Convert', '/json'),
-                  this._buildRaiseButton('PlayerPrefs', '/playerPrefs'),
-                  this._buildActionButton('Print Path', () => this._printPath()),
                 ],
               ),
               Container(alignment: Alignment.center, child: Text('Dio')),
-              Container(alignment: Alignment.center, child: Text('Jason')),
-              Container(alignment: Alignment.center, child: Text('Nosql')),
+              ListView(
+                padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
+                children: <Widget>[
+                  this._buildRaiseButton('Json Convert', '/json'),
+                ],
+              ),
+              ListView(
+                padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
+                children: <Widget>[
+                  this._buildRaiseButton('PlayerPrefs', '/playerPrefs'),
+                ],
+              ),
+              ListView(
+                padding: EdgeInsets.fromLTRB(100, 0, 100, 0),
+                children: <Widget>[
+                  this._buildActionButton('Print Path', () => this._printPath()),
+                ],
+              ),
             ],
           )),
     );
