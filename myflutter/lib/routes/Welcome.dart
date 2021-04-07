@@ -17,8 +17,10 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    this._animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 1000));
-    this._animationCurve = CurvedAnimation(parent: _animationController, curve: Curves.easeIn);
+    this._animationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 1000));
+    this._animationCurve =
+        CurvedAnimation(parent: _animationController, curve: Curves.easeIn);
     this._animation = Tween(begin: 0.0, end: 1.0).animate(this._animationCurve);
 
     this._autoHide();
@@ -51,19 +53,26 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
           padding: EdgeInsets.fromLTRB(0, 175, 0, 0),
           child: Column(
             children: <Widget>[
-              Container(width: 96, height: 96, child: Image.asset('assets/texture/icon2.png')),
+              Container(
+                  width: 96,
+                  height: 96,
+                  child: Image.asset('assets/texture/icon2.png')),
               SizedBox(height: 360.0),
               CustomFadeAnimation(
                 widget: Text(
                   'flutter程序集',
-                  style: TextStyle(color: Colors.black.withAlpha(60), fontSize: 24),
+                  style: TextStyle(
+                      color: Colors.black.withAlpha(60), fontSize: 24),
                 ),
               ),
               SizedBox(height: 10.0),
               CustomFadeAnimation(
                 widget: Text(
                   'EarlyAnt',
-                  style: TextStyle(color: Colors.black.withAlpha(30), fontStyle: FontStyle.italic, fontSize: 20),
+                  style: TextStyle(
+                      color: Colors.black.withAlpha(30),
+                      fontStyle: FontStyle.italic,
+                      fontSize: 20),
                 ),
               ),
               SizedBox(height: 10.0),
@@ -86,7 +95,7 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
   void _autoHide() {
     this._timer = Timer(Duration(seconds: 5), () {
       print('<><_WelcomeState._autoHide>+ + + + +');
-      Navigator.of(context).pushNamed('/home');
+      Navigator.of(context).pushNamed('/login');
       this._timer.cancel();
     });
   }
@@ -107,15 +116,18 @@ class CustomFadeAnimation extends StatefulWidget {
   _CustomFadeAnimationState createState() => _CustomFadeAnimationState();
 }
 
-class _CustomFadeAnimationState extends State<CustomFadeAnimation> with SingleTickerProviderStateMixin {
+class _CustomFadeAnimationState extends State<CustomFadeAnimation>
+    with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation _animation;
   CurvedAnimation _animationCurve;
 
   @override
   void initState() {
-    this._animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 1000));
-    this._animationCurve = CurvedAnimation(parent: _animationController, curve: Curves.easeIn);
+    this._animationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 1000));
+    this._animationCurve =
+        CurvedAnimation(parent: _animationController, curve: Curves.easeIn);
     this._animation = Tween(begin: 0.0, end: 1.0).animate(this._animationCurve);
 
     super.initState();

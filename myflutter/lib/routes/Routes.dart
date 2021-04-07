@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 /*--------------------pages---------------------*/
 import 'Welcome.dart';
 import 'HomePage.dart';
+import '../module/login/src/login_widget.dart';
 
 /*-------------------buttons--------------------*/
 import '../widgets/simple/button/CircularProgressDemo.dart';
@@ -45,6 +46,7 @@ final routes = {
   /*--------------------pages-------------------*/
   '/': (context) => Welcome(),
   '/home': (context) => HomePage(),
+  '/login': (context) => Login(),
 
   /*-------------------buttons------------------*/
   '/circularProgress': (context) => CircularProgressDemo(),
@@ -89,11 +91,13 @@ var onGenerateRoute = (RouteSettings settings) {
   final Function pageContentBuilder = routes[name];
   if (pageContentBuilder != null) {
     if (settings.arguments != null) {
-      final Route route =
-          MaterialPageRoute(builder: (context) => pageContentBuilder(context, arguments: settings.arguments));
+      final Route route = MaterialPageRoute(
+          builder: (context) =>
+              pageContentBuilder(context, arguments: settings.arguments));
       return route;
     } else {
-      final Route route = MaterialPageRoute(builder: (context) => pageContentBuilder(context));
+      final Route route =
+          MaterialPageRoute(builder: (context) => pageContentBuilder(context));
       return route;
     }
   }

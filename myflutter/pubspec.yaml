@@ -31,6 +31,7 @@ dependencies:
   shared_preferences: ^0.5.8
   common_utils:
 
+  getwidget: ^2.0.1-nullsafety.4
   dio: ^3.0.9
   camera: ^0.5.8+2
   path_provider:
@@ -64,6 +65,8 @@ flutter:
       - assets/texture/b3.jpg
       - assets/texture/user.png
       - assets/texture/password.png
+      
+      - assets/texture/app/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
