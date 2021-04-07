@@ -58,8 +58,8 @@ class _LoginState extends State<Login> {
                           SizedBox(height: 10),
                           Container(
                             width: 430.0,
-                            height: 40.0,
-                            padding: EdgeInsets.fromLTRB(50, 0, 20, 7),
+                            height: 50.0,
+                            padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
                             decoration: ShapeDecoration(
                               color: Colors.white30,
                               shape: RoundedRectangleBorder(
@@ -72,22 +72,22 @@ class _LoginState extends State<Login> {
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
                               decoration: InputDecoration(
-                                // icon: Icon(Icons.person),
+                                icon: Icon(Icons.person),
                                 border: InputBorder.none,
                                 hintText: '请输入手机号',
                                 hintStyle: TextStyle(
                                     fontStyle: FontStyle.italic,
-                                    color: Colors.white),
+                                    color: Colors.grey[200]),
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 8.0),
                               ),
                             ),
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 20),
                           Container(
                             width: 430.0,
-                            height: 40.0,
-                            padding: EdgeInsets.fromLTRB(50, 0, 20, 7),
+                            height: 50.0,
+                            padding: EdgeInsets.fromLTRB(10, 5, 20, 0),
                             decoration: ShapeDecoration(
                               color: Colors.white30,
                               shape: RoundedRectangleBorder(
@@ -101,12 +101,12 @@ class _LoginState extends State<Login> {
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
                               decoration: InputDecoration(
-                                // icon: Icon(Icons.lock),
+                                icon: Icon(Icons.lock),
                                 border: InputBorder.none,
                                 hintText: '请输入密码',
                                 hintStyle: TextStyle(
                                     fontStyle: FontStyle.italic,
-                                    color: Colors.white),
+                                    color: Colors.grey[200]),
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 8.0),
                                 suffixIcon: IconButton(
@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
                         ],
                       ))),
               Positioned(
-                  top: 490,
+                  top: 470,
                   left: 22,
                   child: Container(
                       alignment: Alignment.center,
