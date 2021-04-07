@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import '../../reminder/src/topReminder_widget.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
@@ -125,46 +126,52 @@ class _LoginState extends State<Login> {
                         ],
                       ))),
               Positioned(
-                  top: 470,
-                  left: 22,
-                  child: Container(
-                      alignment: Alignment.center,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                                width: 435,
-                                height: 50,
-                                child: RawMaterialButton(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(6))),
-                                    fillColor:
-                                        Color.fromARGB(255, 68, 178, 232),
-                                    splashColor:
-                                        Color.fromARGB(200, 68, 178, 232),
-                                    onPressed: () {
-                                      setState(() {
-                                        if (_userNameController.text.isEmpty)
-                                          print('用户名不能为空');
-                                        else if (!phoneNumberValid(
-                                            _userNameController.text))
-                                          print('请输入正确的手机号');
-                                        else
-                                          print('登陆成功');
-                                      });
-                                    },
-                                    child: Text('登陆',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 17)))),
-                            SizedBox(height: 15),
-                            Text('忘记密码',
-                                style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    color: Colors.white,
-                                    fontSize: 15))
-                          ]))),
+                top: 470,
+                left: 22,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                            width: 435,
+                            height: 50,
+                            child: RawMaterialButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(6))),
+                                fillColor: Color.fromARGB(255, 68, 178, 232),
+                                splashColor: Color.fromARGB(200, 68, 178, 232),
+                                onPressed: () {
+                                  setState(() {
+                                    if (_userNameController.text.isEmpty)
+                                      openTopReminder(context, '用户名不能为空');
+                                    else if (!phoneNumberValid(
+                                        _userNameController.text))
+                                      openTopReminder(context, '请输入正确的手机号');
+                                    else if (_passwordController.text.isEmpty)
+                                      openTopReminder(context, '请输入密码');
+                                    else if (!loginVerify())
+                                      openTopReminder(context, '用户名或密码错误');
+                                    else
+                                      openTopReminder(context, '登陆成功');
+                                  });
+                                },
+                                child: Text('登陆',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20)))),
+                        // SizedBox(height: 10),
+                        TextButton(
+                          onPressed: () => print('忘记密码'),
+                          child: Text('忘记密码',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.white,
+                                  fontSize: 20)),
+                        )
+                      ]),
+                ),
+              ),
             ],
           ),
         ),
@@ -176,5 +183,36 @@ class _LoginState extends State<Login> {
     return new RegExp(
             '^((13[0-9])|(15[^4])|(166)|(17[0-8])|(18[0-9])|(19[8-9])|(147,145))\\d{8}\$')
         .hasMatch(str);
+  }
+
+  bool loginVerify() {
+    if (_userNameController.text == '17621798266' &&
+        _passwordController.text == '123')
+      return true;
+    else
+      return false;
+  }
+
+  void openTopReminder(context, String reminderText) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+          opaque: false,
+          pageBuilder: (BuildContext context, _, __) {
+            return TopReminder(reminderText: reminderText);
+          },
+          transitionsBuilder:
+              (_, Animation<double> animation, __, Widget child) {
+            return FadeTransition(
+              opacity: animation,
+              child: SlideTransition(
+                position: Tween<Offset>(
+                  begin: Offset(0.0, -0.3),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              ),
+            );
+          }),
+    );
   }
 }
