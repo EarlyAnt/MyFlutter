@@ -143,7 +143,17 @@ class _LoginState extends State<Login> {
                                         Color.fromARGB(255, 68, 178, 232),
                                     splashColor:
                                         Color.fromARGB(200, 68, 178, 232),
-                                    onPressed: () => print("clicked"),
+                                    onPressed: () {
+                                      setState(() {
+                                        if (_userNameController.text.isEmpty)
+                                          print('用户名不能为空');
+                                        else if (!phoneNumberValid(
+                                            _userNameController.text))
+                                          print('请输入正确的手机号');
+                                        else
+                                          print('登陆成功');
+                                      });
+                                    },
                                     child: Text('登陆',
                                         style: TextStyle(
                                             color: Colors.white,
@@ -160,5 +170,11 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  bool phoneNumberValid(String str) {
+    return new RegExp(
+            '^((13[0-9])|(15[^4])|(166)|(17[0-8])|(18[0-9])|(19[8-9])|(147,145))\\d{8}\$')
+        .hasMatch(str);
   }
 }
