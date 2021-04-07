@@ -2,13 +2,22 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  Login({Key key}) : super(key: key);
+
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  bool passwordVisible = true;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+      child: Scaffold(
         backgroundColor: Color.fromARGB(255, 69, 124, 187),
         body: Container(
           // width: 800,
@@ -30,7 +39,7 @@ class Login extends StatelessWidget {
                       height: 193 / 4,
                       child: Text(
                         '健康+有趣=好习惯',
-                        style: new TextStyle(color: Colors.white, fontSize: 19),
+                        style: TextStyle(color: Colors.white, fontSize: 19),
                       ))),
               Positioned(
                   top: 300,
@@ -44,18 +53,28 @@ class Login extends StatelessWidget {
                               alignment: Alignment.topLeft,
                               child: Text('密码登录',
                                   textAlign: TextAlign.start,
-                                  style: new TextStyle(
+                                  style: TextStyle(
                                       color: Colors.white, fontSize: 16))),
+                          SizedBox(height: 10),
                           Container(
                             width: 430.0,
-                            height: 30.0,
-                            child: TextField(
+                            height: 40.0,
+                            padding: EdgeInsets.fromLTRB(50, 0, 20, 7),
+                            decoration: ShapeDecoration(
+                              color: Colors.white30,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(6))),
+                            ),
+                            child: TextFormField(
                               controller: this._userNameController,
                               textAlign: TextAlign.start,
-                              style: new TextStyle(
-                                  color: Colors.white, fontSize: 16),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
                               decoration: InputDecoration(
-                                hintText: '用户名',
+                                // icon: Icon(Icons.person),
+                                border: InputBorder.none,
+                                hintText: '请输入手机号',
                                 hintStyle: TextStyle(
                                     fontStyle: FontStyle.italic,
                                     color: Colors.white),
@@ -67,26 +86,46 @@ class Login extends StatelessWidget {
                           SizedBox(height: 10),
                           Container(
                             width: 430.0,
-                            height: 30.0,
-                            child: TextField(
+                            height: 40.0,
+                            padding: EdgeInsets.fromLTRB(50, 0, 20, 7),
+                            decoration: ShapeDecoration(
+                              color: Colors.white30,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(6))),
+                            ),
+                            child: TextFormField(
                               controller: this._passwordController,
+                              obscureText: passwordVisible,
                               textAlign: TextAlign.start,
-                              style: new TextStyle(
-                                  color: Colors.white, fontSize: 16),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
                               decoration: InputDecoration(
-                                hintText: '密码',
+                                // icon: Icon(Icons.lock),
+                                border: InputBorder.none,
+                                hintText: '请输入密码',
                                 hintStyle: TextStyle(
                                     fontStyle: FontStyle.italic,
                                     color: Colors.white),
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 8.0),
+                                suffixIcon: IconButton(
+                                  icon: Icon(passwordVisible
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                  onPressed: () {
+                                    setState(() {
+                                      passwordVisible = !passwordVisible;
+                                    });
+                                  },
+                                ),
                               ),
                             ),
                           ),
                         ],
                       ))),
               Positioned(
-                  top: 410,
+                  top: 490,
                   left: 22,
                   child: Container(
                       alignment: Alignment.center,
@@ -106,18 +145,20 @@ class Login extends StatelessWidget {
                                         Color.fromARGB(200, 68, 178, 232),
                                     onPressed: () => print("clicked"),
                                     child: Text('登陆',
-                                        style: new TextStyle(
+                                        style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 17)))),
-                            SizedBox(height: 10),
+                            SizedBox(height: 15),
                             Text('忘记密码',
-                                style: new TextStyle(
+                                style: TextStyle(
                                     decoration: TextDecoration.underline,
                                     color: Colors.white,
                                     fontSize: 15))
                           ]))),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
