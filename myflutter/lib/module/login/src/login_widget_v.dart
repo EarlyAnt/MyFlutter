@@ -88,7 +88,7 @@ class _VerifyNumberLoginViewState extends State<VerifyNumberLoginView> {
     return TextButton(
       onPressed: () {
         print('密码登陆');
-        Navigator.of(context).pushNamed('/login_p');
+        Navigator.of(context).pushReplacementNamed('/login_p');
       },
       child: Text(
         '密码登陆',

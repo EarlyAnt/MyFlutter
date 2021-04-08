@@ -88,7 +88,7 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
     return TextButton(
       onPressed: () {
         print('验证码登陆');
-        Navigator.of(context).pushNamed('/login_v');
+        Navigator.of(context).pushReplacementNamed('/login_v');
       },
       child: Text(
         '验证码登陆',

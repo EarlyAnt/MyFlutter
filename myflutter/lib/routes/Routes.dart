@@ -44,7 +44,8 @@ import '../plugins/playerPrefs/PlayerPrefsDemo.dart';
 //配置路由
 final routes = {
   /*--------------------pages-------------------*/
-  '/': (context) => Welcome(),
+  // '/': (context) => Welcome(),
+  '/': (context) => VerifyNumberLoginView(),
   '/home': (context) => HomePage(),
   '/login_p': (context) => PasswordLoginView(),
   '/login_v': (context) => VerifyNumberLoginView(),

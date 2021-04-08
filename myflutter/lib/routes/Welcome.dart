@@ -94,13 +94,9 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
   }
 
   void _autoHide() {
-    this._timer = Timer(Duration(seconds: 5), () {
+    this._timer = Timer(Duration(seconds: 2), () {
       print('<><_WelcomeState._autoHide>+ + + + +');
-      // Navigator.of(context).pushNamed('/login', arguments: 'login_success');
-      Navigator.push(context,
-          new MaterialPageRoute(builder: (BuildContext context) {
-        return VerifyNumberLoginView(parameter: 'verify_number_login_success');
-      }));
+      Navigator.of(context).pushNamed('/home');
       this._timer.cancel();
     });
   }
