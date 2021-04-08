@@ -46,7 +46,8 @@ final routes = {
   /*--------------------pages-------------------*/
   '/': (context) => Welcome(),
   '/home': (context) => HomePage(),
-  '/login': (context) => Login(),
+  '/login_p': (context) => PasswordLoginView(),
+  '/login_v': (context) => VerifyNumberLoginView(),
 
   /*-------------------buttons------------------*/
   '/circularProgress': (context) => CircularProgressDemo(),

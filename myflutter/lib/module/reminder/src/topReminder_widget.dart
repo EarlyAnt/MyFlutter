@@ -66,10 +66,10 @@ class _TopReminderState extends State<TopReminder> {
         children: <Widget>[
           Container(
             width: double.infinity,
-            height: 85.0,
+            height: 95.0,
             color: const Color(0xFFFF6F6F),
             child: Align(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment(0, 0.8),
               //使用材料（`Material`）组件来避免文本下方的黄色线条。
               child: Material(
                 color: const Color(0xFFFF6F6F),
@@ -78,7 +78,7 @@ class _TopReminderState extends State<TopReminder> {
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 20.0,
                     color: Colors.white,
                   ),
                 ),

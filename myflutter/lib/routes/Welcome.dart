@@ -99,7 +99,7 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
       // Navigator.of(context).pushNamed('/login', arguments: 'login_success');
       Navigator.push(context,
           new MaterialPageRoute(builder: (BuildContext context) {
-        return Login(parameter: 'login_success');
+        return VerifyNumberLoginView(parameter: 'verify_number_login_success');
       }));
       this._timer.cancel();
     });
