@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /*--------------------pages---------------------*/
 import 'Welcome.dart';
 import 'HomePage.dart';
-import '../module/login/src/login_widget.dart';
+import '../module/login/login.dart';
 
 /*-------------------buttons--------------------*/
 import '../widgets/simple/button/CircularProgressDemo.dart';
