@@ -12,6 +12,29 @@ class TopReminder extends StatefulWidget {
 
   @override
   _TopReminderState createState() => _TopReminderState();
+
+  static void open(context, String reminderText) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+          opaque: false,
+          pageBuilder: (BuildContext context, _, __) {
+            return TopReminder(reminderText: reminderText);
+          },
+          transitionsBuilder:
+              (_, Animation<double> animation, __, Widget child) {
+            return FadeTransition(
+              opacity: animation,
+              child: SlideTransition(
+                position: Tween<Offset>(
+                  begin: Offset(0.0, -0.3),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              ),
+            );
+          }),
+    );
+  }
 }
 
 class _TopReminderState extends State<TopReminder> {

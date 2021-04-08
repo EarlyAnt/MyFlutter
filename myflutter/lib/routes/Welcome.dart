@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import '../module/login/login.dart';
 
 class Welcome extends StatefulWidget {
   Welcome({Key key}) : super(key: key);
@@ -95,7 +96,11 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
   void _autoHide() {
     this._timer = Timer(Duration(seconds: 5), () {
       print('<><_WelcomeState._autoHide>+ + + + +');
-      Navigator.of(context).pushNamed('/login');
+      // Navigator.of(context).pushNamed('/login', arguments: 'login_success');
+      Navigator.push(context,
+          new MaterialPageRoute(builder: (BuildContext context) {
+        return Login(parameter: 'login_success');
+      }));
       this._timer.cancel();
     });
   }

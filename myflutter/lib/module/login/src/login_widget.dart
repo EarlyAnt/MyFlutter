@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import '../../reminder/src/topReminder_widget.dart';
 
 class Login extends StatefulWidget {
-  Login({Key key}) : super(key: key);
+  //Login({Key key}) : super(key: key);
+
+  final String parameter;
+  Login({
+    @required this.parameter,
+  });
 
   @override
   _LoginState createState() => _LoginState();
@@ -17,6 +22,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.parameter);
     return Container(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 69, 124, 187),
@@ -145,22 +151,21 @@ class _LoginState extends State<Login> {
                                 onPressed: () {
                                   setState(() {
                                     if (_userNameController.text.isEmpty)
-                                      openTopReminder(context, '用户名不能为空');
+                                      TopReminder.open(context, '用户名不能为空');
                                     else if (!phoneNumberValid(
                                         _userNameController.text))
-                                      openTopReminder(context, '请输入正确的手机号');
+                                      TopReminder.open(context, '请输入正确的手机号');
                                     else if (_passwordController.text.isEmpty)
-                                      openTopReminder(context, '请输入密码');
+                                      TopReminder.open(context, '请输入密码');
                                     else if (!loginVerify())
-                                      openTopReminder(context, '用户名或密码错误');
+                                      TopReminder.open(context, '用户名或密码错误');
                                     else
-                                      openTopReminder(context, '登陆成功');
+                                      TopReminder.open(context, '登陆成功');
                                   });
                                 },
                                 child: Text('登陆',
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20)))),
-                        // SizedBox(height: 10),
                         TextButton(
                           onPressed: () => print('忘记密码'),
                           child: Text('忘记密码',
@@ -191,28 +196,5 @@ class _LoginState extends State<Login> {
       return true;
     else
       return false;
-  }
-
-  void openTopReminder(context, String reminderText) {
-    Navigator.of(context).push(
-      PageRouteBuilder(
-          opaque: false,
-          pageBuilder: (BuildContext context, _, __) {
-            return TopReminder(reminderText: reminderText);
-          },
-          transitionsBuilder:
-              (_, Animation<double> animation, __, Widget child) {
-            return FadeTransition(
-              opacity: animation,
-              child: SlideTransition(
-                position: Tween<Offset>(
-                  begin: Offset(0.0, -0.3),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
-              ),
-            );
-          }),
-    );
   }
 }
