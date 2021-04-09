@@ -27,39 +27,26 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 69, 124, 187),
         body: Container(
-          child: Stack(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Positioned(top: 120, left: 135, child: _imgLogo()),
-              Positioned(top: 190, left: 170, child: _txtTitle()),
-              Positioned(top: 15, right: 10, child: _txtLoginType()),
-              Positioned(
-                  top: 300,
-                  left: 24,
-                  child: Container(
-                      alignment: Alignment.center,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _txtOperate(),
-                          SizedBox(height: 10),
-                          _txtPhone(),
-                          SizedBox(height: 20),
-                          _txtPassword(),
-                        ],
-                      ))),
-              Positioned(
-                top: 470,
-                left: 22,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(width: 435, height: 50, child: _btnLogin()),
-                        _btnLink()
-                      ]),
-                ),
-              ),
+              SizedBox(height: 20),
+              _txtLoginType(),
+              SizedBox(height: 100),
+              _imgLogo(),
+              SizedBox(height: 20),
+              _txtTitle(),
+              SizedBox(height: 80),
+              _txtOperate(),
+              SizedBox(height: 10),
+              _txtPhone(),
+              SizedBox(height: 20),
+              _txtPassword(),
+              SizedBox(height: 20),
+              _btnLogin(),
+              SizedBox(height: 5),
+              _btnLink(),
             ],
           ),
         ),
@@ -80,114 +67,124 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
         height: 193 / 4,
         child: Text(
           '健康+有趣=好习惯',
+          textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white, fontSize: 20),
         ));
   }
 
   Widget _txtLoginType() {
-    return TextButton(
-      onPressed: () {
-        print('验证码登陆');
-        Navigator.of(context).pushReplacementNamed('/login_v');
-      },
-      child: Text(
-        '验证码登陆',
-        style: TextStyle(color: Colors.white, fontSize: 20),
-      ),
-    );
+    return Padding(
+        padding: EdgeInsets.fromLTRB(260, 0, 0, 0),
+        child: TextButton(
+          onPressed: () {
+            print('验证码登陆');
+            Navigator.of(context).pushReplacementNamed('/login_v');
+          },
+          child: Text(
+            '验证码登陆',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ));
   }
 
   Widget _txtOperate() {
-    return Align(
-        alignment: Alignment.topLeft,
+    return Padding(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Text('密码登录',
             textAlign: TextAlign.start,
             style: TextStyle(color: Colors.white, fontSize: 20)));
   }
 
   Widget _txtPhone() {
-    return Container(
-      width: 430.0,
-      height: 50.0,
-      padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
-      decoration: ShapeDecoration(
-        color: Colors.white30,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(6))),
-      ),
-      child: TextFormField(
-        controller: this._userNameController,
-        textAlign: TextAlign.start,
-        style: TextStyle(color: Colors.white, fontSize: 16),
-        decoration: InputDecoration(
-          icon: Icon(Icons.person),
-          border: InputBorder.none,
-          hintText: '请输入手机号',
-          hintStyle:
-              TextStyle(fontStyle: FontStyle.italic, color: Colors.grey[200]),
-          contentPadding: EdgeInsets.symmetric(vertical: 8.0),
-        ),
-      ),
-    );
+    return Padding(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Container(
+          height: 50.0,
+          padding: EdgeInsets.fromLTRB(8, 0, 20, 0),
+          decoration: ShapeDecoration(
+            color: Colors.white30,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(6))),
+          ),
+          child: TextFormField(
+            controller: this._userNameController,
+            textAlign: TextAlign.start,
+            style: TextStyle(color: Colors.white, fontSize: 16),
+            decoration: InputDecoration(
+              icon: Icon(Icons.person),
+              border: InputBorder.none,
+              hintText: '请输入手机号',
+              hintStyle: TextStyle(
+                  fontStyle: FontStyle.italic, color: Colors.grey[200]),
+              contentPadding: EdgeInsets.symmetric(vertical: 8.0),
+            ),
+          ),
+        ));
   }
 
   Widget _txtPassword() {
-    return Container(
-      width: 430.0,
-      height: 50.0,
-      padding: EdgeInsets.fromLTRB(10, 5, 20, 0),
-      decoration: ShapeDecoration(
-        color: Colors.white30,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(6))),
-      ),
-      child: TextFormField(
-        controller: this._passwordController,
-        obscureText: passwordVisible,
-        textAlign: TextAlign.start,
-        style: TextStyle(color: Colors.white, fontSize: 16),
-        decoration: InputDecoration(
-          icon: Icon(Icons.lock),
-          border: InputBorder.none,
-          hintText: '请输入密码',
-          hintStyle:
-              TextStyle(fontStyle: FontStyle.italic, color: Colors.grey[200]),
-          contentPadding: EdgeInsets.symmetric(vertical: 8.0),
-          suffixIcon: IconButton(
-            icon:
-                Icon(passwordVisible ? Icons.visibility_off : Icons.visibility),
-            onPressed: () {
-              setState(() {
-                passwordVisible = !passwordVisible;
-              });
-            },
+    return Padding(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Container(
+          height: 50.0,
+          padding: EdgeInsets.fromLTRB(10, 5, 20, 0),
+          decoration: ShapeDecoration(
+            color: Colors.white30,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(6))),
           ),
-        ),
-      ),
-    );
+          child: TextFormField(
+            controller: this._passwordController,
+            obscureText: passwordVisible,
+            textAlign: TextAlign.start,
+            style: TextStyle(color: Colors.white, fontSize: 16),
+            decoration: InputDecoration(
+              icon: Icon(Icons.lock),
+              border: InputBorder.none,
+              hintText: '请输入密码',
+              hintStyle: TextStyle(
+                  fontStyle: FontStyle.italic, color: Colors.grey[200]),
+              contentPadding: EdgeInsets.symmetric(vertical: 8.0),
+              suffixIcon: IconButton(
+                icon: Icon(
+                    passwordVisible ? Icons.visibility_off : Icons.visibility),
+                onPressed: () {
+                  setState(() {
+                    passwordVisible = !passwordVisible;
+                  });
+                },
+              ),
+            ),
+          ),
+        ));
   }
 
   Widget _btnLogin() {
-    return RawMaterialButton(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(6))),
-        fillColor: Color.fromARGB(255, 68, 178, 232),
-        splashColor: Color.fromARGB(200, 68, 178, 232),
-        onPressed: () {
-          setState(() {
-            if (_userNameController.text.isEmpty)
-              TopReminder.open(context, '手机号不能为空');
-            else if (!_phoneNumberValid(_userNameController.text))
-              TopReminder.open(context, '请输入正确的手机号');
-            else if (_passwordController.text.isEmpty)
-              TopReminder.open(context, '请输入密码');
-            else if (!_loginVerify())
-              TopReminder.open(context, '用户名或密码错误');
-            else
-              TopReminder.open(context, '登陆成功');
-          });
-        },
-        child: Text('登陆', style: TextStyle(color: Colors.white, fontSize: 20)));
+    return Padding(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Container(
+            height: 50,
+            child: RawMaterialButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(6))),
+                fillColor: Color.fromARGB(255, 68, 178, 232),
+                splashColor: Color.fromARGB(200, 68, 178, 232),
+                onPressed: () {
+                  setState(() {
+                    if (_userNameController.text.isEmpty)
+                      TopReminder.open(context, '手机号不能为空');
+                    else if (!_phoneNumberValid(_userNameController.text))
+                      TopReminder.open(context, '请输入正确的手机号');
+                    else if (_passwordController.text.isEmpty)
+                      TopReminder.open(context, '请输入密码');
+                    else if (!_loginVerify())
+                      TopReminder.open(context, '用户名或密码错误');
+                    else
+                      TopReminder.open(context, '登陆成功');
+                  });
+                },
+                child: Text('登陆',
+                    style: TextStyle(color: Colors.white, fontSize: 20)))));
   }
 
   Widget _btnLink() {
