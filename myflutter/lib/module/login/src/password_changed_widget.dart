@@ -26,22 +26,24 @@ class _PasswordChangedWidgetState extends State<PasswordChangedWidget> {
     // print(widget.parameter);
     return Container(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 69, 124, 187),
-        body: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(height: 170),
-              _txtTitle(),
-              SizedBox(height: 20),
-              _txtTransferPage(),
-              SizedBox(height: 100),
-              imgOK(),
-            ],
-          ),
-        ),
-      ),
+          backgroundColor: Color.fromARGB(255, 69, 124, 187),
+          body: Stack(children: [
+            Center(child: imgOK()),
+            Padding(
+              padding: EdgeInsets.only(top: 150),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _txtTitle(),
+                  Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: _txtTransferPage()),
+                ],
+              ),
+            ),
+          ])),
     );
   }
 
