@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myflutter/module/login/src/chang_password_widget.dart';
+import 'package:myflutter/module/login/src/forget_password_widget.dart';
 
 /*--------------------pages---------------------*/
 import 'Welcome.dart';
@@ -45,10 +47,13 @@ import '../plugins/playerPrefs/PlayerPrefsDemo.dart';
 final routes = {
   /*--------------------pages-------------------*/
   // '/': (context) => Welcome(),
-  '/': (context) => VerifyNumberLoginView(),
+  '/': (context) => PasswordChangedWidget(),
   '/home': (context) => HomePage(),
-  '/login_p': (context) => PasswordLoginView(),
-  '/login_v': (context) => VerifyNumberLoginView(),
+  '/login_p': (context) => PasswordLoginWidget(),
+  '/login_v': (context) => VerifyNumberLoginWidget(),
+  '/forget_password': (context) => ForgetPasswordWidget(),
+  '/change_password': (context) => ChangePasswordWidget(),
+  '/password_changed': (context) => PasswordChangedWidget(),
 
   /*-------------------buttons------------------*/
   '/circularProgress': (context) => CircularProgressDemo(),

@@ -3,20 +3,21 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import '../../reminder/src/topReminder_widget.dart';
 
-class PasswordLoginView extends StatefulWidget {
+class VerifyNumberLoginWidget extends StatefulWidget {
   //Login({Key key}) : super(key: key);
 
   final String parameter;
-  PasswordLoginView({
+  VerifyNumberLoginWidget({
     @required this.parameter,
   });
 
   @override
-  _PasswordLoginViewState createState() => _PasswordLoginViewState();
+  _VerifyNumberLoginWidgetState createState() =>
+      _VerifyNumberLoginWidgetState();
 }
 
-class _PasswordLoginViewState extends State<PasswordLoginView> {
-  TextEditingController _userNameController = TextEditingController();
+class _VerifyNumberLoginWidgetState extends State<VerifyNumberLoginWidget> {
+  TextEditingController _phoneNumberController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   bool passwordVisible = true;
 
@@ -42,11 +43,7 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
               SizedBox(height: 10),
               _txtPhone(),
               SizedBox(height: 20),
-              _txtPassword(),
-              SizedBox(height: 20),
-              _btnLogin(),
-              SizedBox(height: 5),
-              _btnLink(),
+              _btnGetVerifyNumber(),
             ],
           ),
         ),
@@ -74,14 +71,14 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
 
   Widget _txtLoginType() {
     return Padding(
-        padding: EdgeInsets.fromLTRB(260, 0, 0, 0),
+        padding: EdgeInsets.fromLTRB(280, 0, 0, 0),
         child: TextButton(
           onPressed: () {
-            print('验证码登陆');
-            Navigator.of(context).pushReplacementNamed('/login_v');
+            print('密码登陆');
+            Navigator.of(context).pushReplacementNamed('/login_p');
           },
           child: Text(
-            '验证码登陆',
+            '密码登陆',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ));
@@ -90,7 +87,7 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
   Widget _txtOperate() {
     return Padding(
         padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Text('密码登录',
+        child: Text('手机号登陆/注册',
             textAlign: TextAlign.start,
             style: TextStyle(color: Colors.white, fontSize: 20)));
   }
@@ -107,7 +104,7 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
                 borderRadius: BorderRadius.all(Radius.circular(6))),
           ),
           child: TextFormField(
-            controller: this._userNameController,
+            controller: this._phoneNumberController,
             textAlign: TextAlign.start,
             style: TextStyle(color: Colors.white, fontSize: 16),
             decoration: InputDecoration(
@@ -122,44 +119,7 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
         ));
   }
 
-  Widget _txtPassword() {
-    return Padding(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Container(
-          height: 50.0,
-          padding: EdgeInsets.fromLTRB(10, 5, 20, 0),
-          decoration: ShapeDecoration(
-            color: Colors.white30,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(6))),
-          ),
-          child: TextFormField(
-            controller: this._passwordController,
-            obscureText: passwordVisible,
-            textAlign: TextAlign.start,
-            style: TextStyle(color: Colors.white, fontSize: 16),
-            decoration: InputDecoration(
-              icon: Icon(Icons.lock),
-              border: InputBorder.none,
-              hintText: '请输入密码',
-              hintStyle: TextStyle(
-                  fontStyle: FontStyle.italic, color: Colors.grey[200]),
-              contentPadding: EdgeInsets.symmetric(vertical: 8.0),
-              suffixIcon: IconButton(
-                icon: Icon(
-                    passwordVisible ? Icons.visibility_off : Icons.visibility),
-                onPressed: () {
-                  setState(() {
-                    passwordVisible = !passwordVisible;
-                  });
-                },
-              ),
-            ),
-          ),
-        ));
-  }
-
-  Widget _btnLogin() {
+  Widget _btnGetVerifyNumber() {
     return Padding(
         padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Container(
@@ -171,44 +131,21 @@ class _PasswordLoginViewState extends State<PasswordLoginView> {
                 splashColor: Color.fromARGB(200, 68, 178, 232),
                 onPressed: () {
                   setState(() {
-                    if (_userNameController.text.isEmpty)
+                    if (_phoneNumberController.text.isEmpty)
                       TopReminder.open(context, '手机号不能为空');
-                    else if (!_phoneNumberValid(_userNameController.text))
+                    else if (!_phoneNumberValid(_phoneNumberController.text))
                       TopReminder.open(context, '请输入正确的手机号');
-                    else if (_passwordController.text.isEmpty)
-                      TopReminder.open(context, '请输入密码');
-                    else if (!_loginVerify())
-                      TopReminder.open(context, '用户名或密码错误');
                     else
-                      TopReminder.open(context, '登陆成功');
+                      TopReminder.open(context, '验证码获取成功');
                   });
                 },
-                child: Text('登陆',
+                child: Text('获取验证码',
                     style: TextStyle(color: Colors.white, fontSize: 20)))));
-  }
-
-  Widget _btnLink() {
-    return TextButton(
-      onPressed: () => print('忘记密码'),
-      child: Text('忘记密码',
-          style: TextStyle(
-              decoration: TextDecoration.underline,
-              color: Colors.white,
-              fontSize: 20)),
-    );
   }
 
   bool _phoneNumberValid(String str) {
     return new RegExp(
             '^((13[0-9])|(15[^4])|(166)|(17[0-8])|(18[0-9])|(19[8-9])|(147,145))\\d{8}\$')
         .hasMatch(str);
-  }
-
-  bool _loginVerify() {
-    if (_userNameController.text == '17621798266' &&
-        _passwordController.text == '123')
-      return true;
-    else
-      return false;
   }
 }
