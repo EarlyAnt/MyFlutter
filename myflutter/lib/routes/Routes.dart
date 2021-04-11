@@ -47,7 +47,7 @@ import '../plugins/playerPrefs/PlayerPrefsDemo.dart';
 final routes = {
   /*--------------------pages-------------------*/
   // '/': (context) => Welcome(),
-  '/': (context) => PasswordChangedWidget(),
+  '/': (context) => LayoutTest(),
   '/home': (context) => HomePage(),
   '/login_p': (context) => PasswordLoginWidget(),
   '/login_v': (context) => VerifyNumberLoginWidget(),
