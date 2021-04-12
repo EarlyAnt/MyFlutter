@@ -4,13 +4,7 @@ import 'package:flutter/material.dart';
 import '../../reminder/src/topReminder_widget.dart';
 
 class VerifyNumberLoginWidget extends StatefulWidget {
-  //Login({Key key}) : super(key: key);
-
-  final String parameter;
-  VerifyNumberLoginWidget({
-    @required this.parameter,
-  });
-
+  VerifyNumberLoginWidget({Key key}) : super(key: key);
   @override
   _VerifyNumberLoginWidgetState createState() =>
       _VerifyNumberLoginWidgetState();
@@ -23,7 +17,6 @@ class _VerifyNumberLoginWidgetState extends State<VerifyNumberLoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // print(widget.parameter);
     return Container(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 69, 124, 187),

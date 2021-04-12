@@ -4,12 +4,7 @@ import 'package:flutter/material.dart';
 import '../../reminder/src/topReminder_widget.dart';
 
 class PasswordChangedWidget extends StatefulWidget {
-  //Login({Key key}) : super(key: key);
-
-  final String parameter;
-  PasswordChangedWidget({
-    @required this.parameter,
-  });
+  PasswordChangedWidget({Key key}) : super(key: key);
 
   @override
   _PasswordChangedWidgetState createState() => _PasswordChangedWidgetState();
@@ -23,7 +18,6 @@ class _PasswordChangedWidgetState extends State<PasswordChangedWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // print(widget.parameter);
     return Container(
       child: Scaffold(
           backgroundColor: Color.fromARGB(255, 69, 124, 187),
