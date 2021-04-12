@@ -12,7 +12,7 @@ class _LayoutTestState extends State<LayoutTest> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 69, 124, 187),
-      body: _test1(),
+      body: _test2(),
     );
   }
 
@@ -39,6 +39,55 @@ class _LayoutTestState extends State<LayoutTest> {
                     style: TextStyle(fontSize: 88),
                     textAlign: TextAlign.center)),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _test2() {
+    //padding约束的是控件内部的边界，margin约束的是控件外部的边界
+    return Container(
+      color: Colors.lime[100],
+      child: Stack(
+        children: [
+          Container(
+              margin: EdgeInsets.all(
+                  20), //flutter中的margin只对控件本身有效，与周边的其他控件无效，这一点与Winform中的不同
+              decoration: BoxDecoration(
+                  color: Colors
+                      .black26, //decoration中指定了color，Container就不能再指定color了，两者冲突
+                  border: Border.all(color: Colors.red, width: 3),
+                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  shape: BoxShape.rectangle),
+              child: Text('陈钰琪',
+                  style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red[100]))),
+          Container(
+              margin: EdgeInsets.all(120),
+              decoration: BoxDecoration(
+                  color: Colors.black26,
+                  border: Border.all(color: Colors.red, width: 3),
+                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  shape: BoxShape.rectangle),
+              child: Text('赵丽颖',
+                  style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.greenAccent))),
+          Container(
+              margin: EdgeInsets.all(220),
+              decoration: BoxDecoration(
+                  color: Colors.black26,
+                  border: Border.all(color: Colors.red, width: 3),
+                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  shape: BoxShape.rectangle),
+              child: Text('张雨绮',
+                  style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue[100]))),
         ],
       ),
     );
