@@ -24,7 +24,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         body: Container(
           child: Stack(
             children: [
-              Padding(padding: EdgeInsets.only(top: 200), child: _txtTitle()),
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 200, 20, 0),
+                  child: _txtTitle()),
               Padding(
                   padding: EdgeInsets.fromLTRB(20, 320, 20, 0),
                   child: _txtPassword()),
@@ -42,13 +44,11 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
   }
 
   Widget _txtTitle() {
-    return Padding(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Text(
-          '输入新密码',
-          textAlign: TextAlign.start,
-          style: TextStyle(color: Colors.white, fontSize: 42),
-        ));
+    return Text(
+      '输入新密码',
+      textAlign: TextAlign.start,
+      style: TextStyle(color: Colors.white, fontSize: 42),
+    );
   }
 
   Widget _txtPassword() {
