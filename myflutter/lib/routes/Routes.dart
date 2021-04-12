@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myflutter/module/login/src/chang_password_widget.dart';
+import 'package:myflutter/module/login/src/change_password_widget.dart';
 import 'package:myflutter/module/login/src/forget_password_widget.dart';
 
 /*--------------------pages---------------------*/
@@ -48,7 +48,7 @@ final routes = {
   /*--------------------pages-------------------*/
   // '/': (context) => Welcome(),
   //'/': (context) => LayoutTest(),
-  '/': (context) => PasswordChangedWidget(),
+  '/': (context) => ChangePasswordWidget(),
   '/home': (context) => HomePage(),
   '/login_p': (context) => PasswordLoginWidget(),
   '/login_v': (context) => VerifyNumberLoginWidget(),
