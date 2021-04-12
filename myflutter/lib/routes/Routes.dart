@@ -48,13 +48,14 @@ final routes = {
   /*--------------------pages-------------------*/
   // '/': (context) => Welcome(),
   //'/': (context) => LayoutTest(),
-  '/': (context) => ForgetPasswordWidget(),
+  '/': (context) => InputVerifyNumberWidget(),
   '/home': (context) => HomePage(),
   '/login_v': (context) => VerifyNumberLoginWidget(),
   '/login_p': (context) => PasswordLoginWidget(),
   '/forget_password': (context) => ForgetPasswordWidget(),
   '/change_password': (context) => ChangePasswordWidget(),
   '/password_changed': (context) => PasswordChangedWidget(),
+  '/input_verify_number': (context) => InputVerifyNumberWidget(),
 
   /*-------------------buttons------------------*/
   '/circularProgress': (context) => CircularProgressDemo(),
