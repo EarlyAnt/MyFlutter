@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:myflutter/module/login/src/password_field_widget.dart';
 import '../../reminder/src/topReminder_widget.dart';
 
 class PasswordLoginWidget extends StatefulWidget {
@@ -12,7 +11,7 @@ class PasswordLoginWidget extends StatefulWidget {
 
 class _PasswordLoginWidgetState extends State<PasswordLoginWidget> {
   TextEditingController _phoneNumberController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  PasswordField _passwordField = PasswordField();
   bool passwordVisible = true;
 
   @override
@@ -127,29 +126,7 @@ class _PasswordLoginWidgetState extends State<PasswordLoginWidget> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(6))),
           ),
-          child: TextFormField(
-            controller: this._passwordController,
-            obscureText: passwordVisible,
-            textAlign: TextAlign.start,
-            style: TextStyle(color: Colors.white, fontSize: 16),
-            decoration: InputDecoration(
-              icon: Icon(Icons.lock),
-              border: InputBorder.none,
-              hintText: '请输入密码',
-              hintStyle: TextStyle(
-                  fontStyle: FontStyle.italic, color: Colors.grey[200]),
-              contentPadding: EdgeInsets.symmetric(vertical: 8.0),
-              suffixIcon: IconButton(
-                icon: Icon(
-                    passwordVisible ? Icons.visibility_off : Icons.visibility),
-                onPressed: () {
-                  setState(() {
-                    passwordVisible = !passwordVisible;
-                  });
-                },
-              ),
-            ),
-          ),
+          child: this._passwordField,
         ));
   }
 
@@ -169,7 +146,7 @@ class _PasswordLoginWidgetState extends State<PasswordLoginWidget> {
                       TopReminder.open(context, '手机号不能为空');
                     else if (!_phoneNumberValid(_phoneNumberController.text))
                       TopReminder.open(context, '请输入正确的手机号');
-                    else if (_passwordController.text.isEmpty)
+                    else if (_passwordField.getPassword().isEmpty)
                       TopReminder.open(context, '请输入密码');
                     else if (!_loginVerify())
                       TopReminder.open(context, '用户名或密码错误');
@@ -200,7 +177,7 @@ class _PasswordLoginWidgetState extends State<PasswordLoginWidget> {
 
   bool _loginVerify() {
     if (_phoneNumberController.text == '17621798266' &&
-        _passwordController.text == '123')
+        _passwordField.getPassword() == '123')
       return true;
     else
       return false;

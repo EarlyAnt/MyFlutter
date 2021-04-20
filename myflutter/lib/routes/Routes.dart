@@ -48,7 +48,7 @@ final routes = {
   /*--------------------pages-------------------*/
   // '/': (context) => Welcome(),
   //'/': (context) => LayoutTest(),
-  '/': (context) => InputVerifyNumberWidget(),
+  '/': (context) => PasswordLoginWidget(),
   '/home': (context) => HomePage(),
   '/login_v': (context) => VerifyNumberLoginWidget(),
   '/login_p': (context) => PasswordLoginWidget(),
