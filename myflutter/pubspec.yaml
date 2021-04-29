@@ -30,12 +30,13 @@ dependencies:
   cupertino_icons: ^0.1.3
   shared_preferences: ^0.5.8
   common_utils:
-
   getwidget: ^2.0.1-nullsafety.4
   dio: ^3.0.9
   camera: ^0.5.8+2
   path_provider:
   video_player:
+  flutter_spine:
+    path: ../
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,13 @@ flutter:
       - assets/texture/password.png
       
       - assets/texture/app/logo.png
+
+      - assets/spine/raptor/raptor.atlas
+      - assets/spine/raptor/raptor.json
+      - assets/spine/raptor/raptor.png
+      - assets/spine/spineboy/spineboy.atlas
+      - assets/spine/spineboy/spineboy.json
+      - assets/spine/spineboy/spineboy.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

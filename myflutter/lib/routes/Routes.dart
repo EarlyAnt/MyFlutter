@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myflutter/module/login/src/change_password_widget.dart';
 import 'package:myflutter/module/login/src/forget_password_widget.dart';
+import 'package:myflutter/module/spine/spine_demo.dart';
 
 /*--------------------pages---------------------*/
 import 'Welcome.dart';
@@ -48,7 +49,8 @@ final routes = {
   /*--------------------pages-------------------*/
   // '/': (context) => Welcome(),
   //'/': (context) => LayoutTest(),
-  '/': (context) => PasswordLoginWidget(),
+  // '/': (context) => PasswordLoginWidget(),
+  '/': (context) => SpineDemoWidget(),
   '/home': (context) => HomePage(),
   '/login_v': (context) => VerifyNumberLoginWidget(),
   '/login_p': (context) => PasswordLoginWidget(),
