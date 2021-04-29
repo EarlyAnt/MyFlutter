@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spine/flutter_spine.dart';
+import 'package:myflutter/spine/flutter_spine.dart';
 
 class SpineDemoWidget extends StatefulWidget {
   final String title = 'spine动画演示';
@@ -49,19 +49,19 @@ class _SpineDemoWidgetState extends State<SpineDemoWidget> {
                             textColor: Colors.white,
                             color: Colors.blue,
                             onPressed: () {
-                              //新的序列播放方式
-                              _skeleton.state
-                                ..setAnimation(0, 'jump', false)
-                                ..addAnimation(0, 'walk', true, 0.0);
-
-                              // //老的序列播放方式
+                              // //新的序列播放方式
                               // _skeleton.state
-                              //     .setAnimation(0, 'jump', false)
-                              //     .onCompleteCallback = (trackEntry) {
-                              //   print('[跳]播放完成，开始播放[走]');
-                              //   _skeleton.state
-                              //       .addAnimation(0, 'walk', true, 0.0);
-                              // };
+                              //   ..setAnimation(0, 'jump', false)
+                              //   ..addAnimation(0, 'walk', true, 0.0);
+
+                              //老的序列播放方式
+                              _skeleton.state
+                                  .setAnimation(0, 'jump', false)
+                                  .onCompleteCallback = (trackEntry) {
+                                print('[跳]播放完成，开始播放[走]');
+                                _skeleton.state
+                                    .addAnimation(0, 'walk', true, 0.0);
+                              };
                             })),
                     Container(
                         margin: const EdgeInsets.all(5.0),
